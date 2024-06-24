@@ -1,0 +1,15 @@
+.container{
+  display: flex;
+  flex-direction: column;
+ }
+
+mat-card{
+  width: 180px;
+  height: 100px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+mat-divider{
+  width: 550px;
+}

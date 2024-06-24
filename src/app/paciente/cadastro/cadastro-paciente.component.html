@@ -1,0 +1,24 @@
+
+<form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="nome" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Sobrenome</mat-label>
+    <input matInput formControlName="sobrenome" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>CPF</mat-label>
+    <input matInput formControlName="cpf" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>e-mail</mat-label>
+    <input matInput formControlName="email" required>
+  </mat-form-field>
+  <div class="acoes">
+    <button mat-raised-button type="submit" [disabled]="pacienteForm.invalid">Salvar</button>
+    <button mat-raised-button >Cancelar</button>
+  </div>
+
+</form>

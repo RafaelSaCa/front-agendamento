@@ -1,0 +1,30 @@
+<form [formGroup]="agendamentoForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Nome do Paciente</mat-label>
+    <mat-select formControlName="pacienteId" required>
+      <mat-option *ngFor="let paciente of pacientes" [value]="paciente.id">
+        {{ paciente.nome }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Descrição</mat-label>
+    <input matInput formControlName="descricao" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Data</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="horario" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Hora</mat-label>
+    <input matInput type="time" formControlName="hora" required>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" [disabled]="agendamentoForm.invalid">Agendar</button>
+  <button mat-raised-button (click)="onCancelar()">Cancelar</button>
+</form>
