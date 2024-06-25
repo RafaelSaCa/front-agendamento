@@ -1,13 +1,12 @@
-import { CadastroAgendamentoComponent } from './agendamento/cadastro/cadastro-agendamento.component';
 import { Routes } from '@angular/router';
-import { CadastroPacienteComponent } from './paciente/cadastro/cadastro-paciente.component';
+import { ListaPacienteComponent } from './paciente/lista-paciente/lista-paciente.component';
 import { ListagemComponent } from './agendamento/listagem/listagem.component';
 
 export const routes: Routes = [
 
   {
     path: '',
-    component: CadastroPacienteComponent
+    component:ListaPacienteComponent
   },
   {
     path: 'cadastro-paciente',
