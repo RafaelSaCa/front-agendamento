@@ -1,8 +1,11 @@
-.container{
-  display: flex;
-  justify-content: center;
+
+mat-header-cell{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
 }
 
-table{
-  padding: 100px
+mat-cell{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 17px;
 }
+
