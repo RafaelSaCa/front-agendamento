@@ -1,11 +1,11 @@
 <div class="container">
-@for(agendamento of agendamentos; track agendamento) {
-  <h3>Agendamentos do Mês {{ agendamento.horario | mes}}</h3>
-<mat-card appearance="outlined">
-  <mat-card-header>{{agendamento.horario | localDateTime}}</mat-card-header>
-  <mat-card-content><p>{{agendamento.paciente.nome}}</p>{{agendamento.descricao}} </mat-card-content>
-</mat-card>
-<mat-divider></mat-divider>
-}
+  @for(agendamento of agendamentos; track agendamento) {
+    <h3>Agendamentos do Mês {{ agendamento.horario | mes}}</h3>
+  <mat-card appearance="outlined">
+    <mat-card-header>{{agendamento.horario | localDateTime}}</mat-card-header>
+    <mat-card-content><p>{{agendamento.paciente.nome}}</p>{{agendamento.descricao}} </mat-card-content>
+  </mat-card>
+  <mat-divider></mat-divider>
+  }
 
 </div>

@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { Paciente } from '../model/paciente';
 import { PacienteService } from '../services/paciente.service';
+import { HeaderComponent } from '../../shared/header/header.component';
 
 @Component({
   selector: 'app-lista-paciente',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, HeaderComponent],
   templateUrl: './lista-paciente.component.html',
   styleUrl: './lista-paciente.component.scss'
 })
 export class ListaPacienteComponent implements OnInit {
 
-pacientes: Paciente[] = [];
-displayedColumns: string[] = ['nome', 'sobrenome','cpf','email',]
+  @Output() textoHeader =  'sfsdsdfsdf';
+
+  pacientes: Paciente[] = [];
+  displayedColumns: string[] = ['nome', 'sobrenome','cpf','email',]
 
   constructor(private service: PacienteService){}
 

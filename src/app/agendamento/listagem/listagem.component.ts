@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
-import { Agendamento } from '../model/agendamento';
-import { AgendamentoService } from '../services/agendamento.service';
-import { LocalDateTimePipe } from '../pipes/local-date-time.pipe';
-import {MatDividerModule} from '@angular/material/divider';
-import { MesPipe } from '../pipes/mes.pipe';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { ResponseAgendamento } from '../model/response-agendamento';
+import { LocalDateTimePipe } from '../pipes/local-date-time.pipe';
+import { MesPipe } from '../pipes/mes.pipe';
+import { AgendamentoService } from '../services/agendamento.service';
 @Component({
   selector: 'app-listagem',
   standalone: true,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { HeaderComponent } from './shared/header/header.component';
 
@@ -12,4 +12,7 @@ import { HeaderComponent } from './shared/header/header.component';
 })
 export class AppComponent {
   title = 'agendamento';
+
+
+
 }
