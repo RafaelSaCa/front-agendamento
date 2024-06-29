@@ -1,0 +1,40 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h2{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  font-size: 24px !important;
+  text-align: center !important;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+mat-dialog-content {
+  margin-top: 25px;
+}
+
+mat-form-field{
+  width: 80%;
+  margin-left: 10%;
+}
+
+mat-divider {
+  width: 80%;
+  margin-left: 50px;
+}
+
+mat-dialog-actions{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  button{
+    width: 37% !important;
+    font-size: 15px;
+  }
+
+}
+
+
+

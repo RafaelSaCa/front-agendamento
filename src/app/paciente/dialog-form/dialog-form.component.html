@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Cadastro de Paciente</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content>
+  <form [formGroup]="formularioPaciente">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Sobrenome</mat-label>
+      <input matInput formControlName="sobrenome" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>CPF</mat-label>
+      <input matInput formControlName="cpf" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <input matInput formControlName="email" required>
+    </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" type="submit" [disabled]="formularioPaciente.invalid" (click)="addPaciente()">Salvar</button>
+  <button mat-raised-button color="warn"    (click)="onCancelar()">Cancelar</button>
+</mat-dialog-actions>
