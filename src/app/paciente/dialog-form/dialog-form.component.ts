@@ -5,7 +5,6 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatDivider } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ToastrService } from 'ngx-toastr';
 import { Paciente } from '../model/paciente';
 import { PacienteService } from '../services/paciente.service';
