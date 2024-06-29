@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDivider } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ToastrService } from 'ngx-toastr';
 import { Paciente } from '../model/paciente';
 import { PacienteService } from '../services/paciente.service';
-import { MatDivider } from '@angular/material/divider';
-import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-dialog-form',
   standalone: true,
@@ -16,7 +18,8 @@ import { Router } from '@angular/router';
             MatButtonModule,
             ReactiveFormsModule,
             MatInputModule,
-            MatDivider],
+            MatDivider,
+          ],
   templateUrl: './dialog-form.component.html',
   styleUrl: './dialog-form.component.scss'
 })
@@ -26,6 +29,7 @@ export class DialogFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private service: PacienteService,
+              private toastr: ToastrService,
               private dialogRef: MatDialogRef<DialogFormComponent>){}
 
 
@@ -44,13 +48,13 @@ export class DialogFormComponent implements OnInit {
       const paciente : Paciente = this.formularioPaciente.value;
 
       this.service.cadastrar(paciente).subscribe(resposta =>{
-      console.log('Cadastro realizado com sucesso!', resposta);
-      this.dialogRef.close();
-      this.formularioPaciente.reset();
-      },
-      error =>{
-        console.log('Ocorreu algum erro ao cadastrar!', error);
-      }
+        this.showSuccess();
+        this.dialogRef.close();
+        this.formularioPaciente.reset();
+        },
+        error =>{
+          console.log('Ocorreu algum erro ao cadastrar!', error);
+        }
     )};
 
 
@@ -58,6 +62,13 @@ export class DialogFormComponent implements OnInit {
 
   onCancelar(): void {
     this.dialogRef.close();
-
   }
+
+  showSuccess() {
+    this.toastr.success('Cadastro realizado com sucesso!');
+  }
+
+
 }
+
+
