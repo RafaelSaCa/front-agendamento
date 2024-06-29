@@ -1,3 +1,10 @@
+<div class="botao">
+  <button mat-raised-button  (click)="addPaciente()">Cadastrar Paciente
+    <mat-icon aria-hidden="false" aria-label="Example person_add_alt icon" fontIcon="person_add_alt"></mat-icon>
+  </button>
+  <mat-divider></mat-divider>
+</div>
+
 <table mat-table [dataSource]="pacientes">
   <ng-container matColumnDef="nome">
     <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
