@@ -1,32 +1,51 @@
 <div class="botao">
-  <button mat-raised-button  (click)="addPaciente()">Cadastrar Paciente
-    <mat-icon aria-hidden="false" aria-label="Example person_add_alt icon" fontIcon="person_add_alt"></mat-icon>
+  <button mat-raised-button (click)="addPaciente()">
+    Cadastrar Paciente
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example person_add_alt icon"
+      fontIcon="person_add_alt"
+    ></mat-icon>
   </button>
   <mat-divider></mat-divider>
 </div>
 
-<table mat-table [dataSource]="pacientes">
+<div *ngIf="pacientes$ | async as pacientes; else carregando">
+<mat-table [dataSource]="pacientes.content">
   <ng-container matColumnDef="nome">
     <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-    <mat-cell *matCellDef="let paciente"> {{paciente.nome}} </mat-cell>
+    <mat-cell *matCellDef="let paciente"> {{ paciente.nome }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="sobrenome">
     <mat-header-cell *matHeaderCellDef> Sobrenome </mat-header-cell>
-    <mat-cell *matCellDef="let paciente"> {{paciente.sobrenome}} </mat-cell>
+    <mat-cell *matCellDef="let paciente"> {{ paciente.sobrenome }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="cpf">
     <mat-header-cell *matHeaderCellDef> CPF </mat-header-cell>
-    <mat-cell *matCellDef="let paciente"> {{paciente.cpf}} </mat-cell>
+    <mat-cell *matCellDef="let paciente"> {{ paciente.cpf }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="email">
     <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
-    <mat-cell *matCellDef="let paciente"> {{paciente.email}} </mat-cell>
+    <mat-cell *matCellDef="let paciente"> {{ paciente.email }} </mat-cell>
   </ng-container>
 
-
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</table>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+<mat-paginator
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              showFirstLastButtons
+              [pageIndex]="pageIndex"
+              [pageSize]="pageSize"
+              [length]="pacientes.totalElements"
+              (page)="refresh($event)"
+              aria-label="Selecione a página">
+</mat-paginator>
+</div>
+<ng-template #carregando>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <h2 style="text-align: center;">carregando...</h2>
+</ng-template>
