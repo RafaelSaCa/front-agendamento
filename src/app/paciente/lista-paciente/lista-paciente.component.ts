@@ -69,7 +69,7 @@ export class ListaPacienteComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(() => {
       console.log('The dialog was closed');
-      // this.carregaDadosPaginados();
+      this.refresh();
     });
   }
 
